@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "cz.nejakejtomas.bluemapbanners.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AbstractBannerBlockMixin",
+    "AbstractItemFrameEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

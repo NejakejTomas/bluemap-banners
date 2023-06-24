@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "bluemapbanners",
+  "version": "${version}",
+  "name": "Bluemap banners",
+  "description": "Todo",
+  "authors": [
+    "NejakejTomas"
+  ],
+  "license": "MIT",
+  "icon": "assets/bluemapbanners/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "cz.nejakejtomas.bluemapbanners.EntrypointKt::init"
+    ]
+  },
+  "mixins": [
+    "bluemapbanners.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "fabric": ">=0.83.1+1.20.1",
+    "fabric-language-kotlin": ">=1.9.5+kotlin.1.8.22",
+    "minecraft": "1.20.1"
+  }
+}
