@@ -15,22 +15,20 @@ class Banner(
     val color: MinecraftColor,
     val patterns: List<Pattern>
 ) : Marker(label, positionX, positionY, positionZ, dimension) {
-    override fun addToBuilder(index: Int, builder: POIMarker.Builder) {
+    override fun addToBuilder(index: Int, builder: POIMarker.Builder): Unit = builder.run {
         super.addToBuilder(index, builder)
 
         when (index) {
             0 -> {
                 val image = BannerImage.byColor[color]!!
-                builder
-                    .icon(ImageRegistry(image), image.anchorX, image.anchorY)
-                if (patterns.isNotEmpty()) builder.minDistance(100.0)
+                icon(ImageRegistry(image), image.anchorX, image.anchorY)
+                if (patterns.isNotEmpty()) minDistance(100.0)
             }
 
             1 -> {
                 val image = PatternedBannerImage(color, patterns)
-                builder
-                    .maxDistance(200.0)
-                    .icon(ImageRegistry(image), image.anchorX, image.anchorY)
+                maxDistance(200.0)
+                icon(ImageRegistry(image), image.anchorX, image.anchorY)
             }
         }
     }

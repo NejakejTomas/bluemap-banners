@@ -33,39 +33,36 @@ class Map private constructor(
     private val image1 get() = MapImage(image, 0.5)
     private val image2 get() = MapImage(image)
 
-    override fun addToBuilder(index: Int, builder: POIMarker.Builder) {
+    override fun addToBuilder(index: Int, builder: POIMarker.Builder): Unit = builder.run {
         super.addToBuilder(index, builder)
 
         when (index) {
             0 -> {
-                builder
-                    .icon(
-                        ImageRegistry(image0),
-                        if (anchorX != null) image0.userAnchorX(anchorX) else image0.anchorX,
-                        if (anchorY != null) image0.userAnchorY(anchorY) else image0.anchorY
-                    )
-                    .minDistance(1000.0)
+                icon(
+                    ImageRegistry(image0),
+                    if (anchorX != null) image0.userAnchorX(anchorX) else image0.anchorX,
+                    if (anchorY != null) image0.userAnchorY(anchorY) else image0.anchorY
+                )
+                minDistance(1000.0)
             }
 
             1 -> {
-                builder
-                    .icon(
-                        ImageRegistry(image1),
-                        if (anchorX != null) image1.userAnchorX(anchorX) else image1.anchorX,
-                        if (anchorY != null) image1.userAnchorY(anchorY) else image1.anchorY
-                    )
-                    .maxDistance(1000.0)
-                    .minDistance(100.0)
+                icon(
+                    ImageRegistry(image1),
+                    if (anchorX != null) image1.userAnchorX(anchorX) else image1.anchorX,
+                    if (anchorY != null) image1.userAnchorY(anchorY) else image1.anchorY
+                )
+                maxDistance(1000.0)
+                minDistance(100.0)
             }
 
             2 -> {
-                builder
-                    .icon(
-                        ImageRegistry(image2),
-                        if (anchorX != null) image2.userAnchorX(anchorX) else image2.anchorX,
-                        if (anchorY != null) image2.userAnchorY(anchorY) else image2.anchorY
-                    )
-                    .maxDistance(100.0)
+                icon(
+                    ImageRegistry(image2),
+                    if (anchorX != null) image2.userAnchorX(anchorX) else image2.anchorX,
+                    if (anchorY != null) image2.userAnchorY(anchorY) else image2.anchorY
+                )
+                maxDistance(100.0)
             }
         }
     }

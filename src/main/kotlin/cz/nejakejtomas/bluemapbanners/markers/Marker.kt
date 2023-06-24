@@ -28,10 +28,11 @@ open class Marker(
         }
     }
 
-    protected open fun addToBuilder(index: Int, builder: POIMarker.Builder) {
-        builder.label(label)
-        builder.position(positionX + 0.5, positionY + 0.0, positionZ + 0.5)
-        builder.maxDistance(Double.MAX_VALUE)
+    protected open fun addToBuilder(index: Int, builder: POIMarker.Builder): Unit = builder.run {
+        label(label)
+        position(positionX + 0.5, positionY + 0.0, positionZ + 0.5)
+        maxDistance(Double.MAX_VALUE)
+        listed(index == 0)
     }
 
     open val markerCount = 1
